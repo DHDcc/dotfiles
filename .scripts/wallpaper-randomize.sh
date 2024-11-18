@@ -1,26 +1,35 @@
 #!/bin/sh
 
-DIR="$HOME/.config/swww/wallpapers"
-PICS=()
+wallpapersDirectory="${HOME:-/home/$USER}/.config/swww/wallpapers"
+wallpapersListFile="/tmp/wallpapers_file.txt"
+numberOfWallpapersInFile=$(wc -l < "${wallpapersListFile}")
+swwwTransitionFps="120"
+swwwTransitionType="grow"
+swwwTransitionPos="bottom-right"
+swwwTransitionDurationInSeconds="2"
+shuffleWallpapers(){ 
+  find "${wallpapersDirectory}" -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -printf '%f\n' | shuf > "${wallpapersListFile}"
+}
 
-while IFS= read -r -d '' file; do
-  PICS+=("$file")
-done < <(find "${DIR}" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -print0)
-
-if [ "${#PICS[@]}" -eq 0 ]; then
-  echo "Error: No image files found in the specified directory: ${DIR}" >&2
-  exit 1
+if [ ! -f "${wallpapersListFile}" ] || [ "${numberOfWallpapersInFile}" -eq "0" ]; then
+     shuffleWallpapers
 fi
 
-RANDOMPICS="${PICS[$((RANDOM % ${#PICS[@]}))]}"
+randomWallpaperName="$(head -1 "${wallpapersListFile}")"
+randomWallpaperPath="${wallpapersDirectory}/${randomWallpaperName}"
 
-echo "Running change_swww function..."
-swww query || swww init
-if [ -f "${RANDOMPICS}" ]; then
-    echo "Setting wallpaper to ${RANDOMPICS}"
-    notify-send -t 1710 -i ~/icons/wallpapers.icon.png --hint int:transient:1 "Changing wallpaper...."
-    swww img "${RANDOMPICS}" --transition-fps 170 --transition-type any --transition-duration 3
+swww query || swww-daemon
+
+if [ -f "${randomWallpaperPath}" ]; then
+    echo "Setting wallpaper to ${randomWallpaperPath}"
+    #notify-send -t 1710 -i $HOME/icons/wallpapers.icon.png --hint int:transient:1 "Changing wallpaper...."
+    swww img "${randomWallpaperPath}" \
+         --transition-fps "${swwwTransitionFps}" \
+         --transition-type "${swwwTransitionType}" \
+         --transition-pos "${swwwTransitionPos}" \
+         --transition-duration "${swwwTransitionDurationInSeconds}"
+    sed -i "/${randomWallpaperName}/d" "${wallpapersListFile}"
 else
-   echo "Error: Image file not found: ${RANDOMPICS}" >&2
+   echo "Error: Image file not found: ${randomWallpaperPath}" >&2
    exit 1
 fi

@@ -1,4 +1,5 @@
 #!/bin/sh
 
+lockscreenScriptPath="$HOME/.scripts/lockscreen.sh"
 
-hyprlock & sleep 0.5; systemctl suspend
+sh "${lockscreenScriptPath}" & systemctl suspend

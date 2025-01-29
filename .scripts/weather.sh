@@ -1,5 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
+weatherFormat="%l+%c|+%C+%t"
 city="Paris"
 
-curl -s "wttr.in/$city?format=%l+%c|+%C+%t\n" 2>/dev/null
+if ! curl -s "https://wttr.in/${city}?format=${weatherFormat}\n"; then
+	exit 1
+fi

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 wallpapersDirectory="${HOME:-/home/$USER}/.config/swww/wallpapers"
 wallpapersListFile="/tmp/wallpapers_file.txt"

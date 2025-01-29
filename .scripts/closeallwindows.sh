@@ -7,5 +7,5 @@ windowNames=$(printf '%s' "${windowNames,,}")
 IFS=$'\n' read -r -d '' -a windowsArray <<< "$windowNames"
 
 for windowName in "${windowsArray[@]}"; do
-      hyprctl dispatch closewindow  "${windowName}"
+      pkill "${windowName}"
 done

@@ -25,6 +25,7 @@
 * Super + Shift + B  = Reload Waybar
 * Super + Space = Open Rofi
 * Alt + Shift + L = Lock Screen
+* Alt + Shift + O = Logout
 * Alt + Shift + S = Suspend System
 * Alt + Shift + R = Reboot System
 * Alt + Shift + Escape = Shutdown System
@@ -32,7 +33,7 @@
 ## Software I Use
 
 * Operating System: [Arch Linux](https://archlinux.org/)
-* Window Manager: [Hyprland](https://github.com/hyprwm/Hyprland)
+* Window Manager: [Hyprland](https://github.com/hyprwm/Hyprland) (uwsm)
 * Status Bar: [Waybar](https://github.com/Alexays/Waybar)
 * Lockscreen: [Hyprlock](https://github.com/hyprwm/hyprlock)
 * Display Manager: [Ly](https://github.com/fairyglade/ly)

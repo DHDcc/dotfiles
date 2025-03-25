@@ -1,20 +1,23 @@
 export XCURSOR_SIZE=30
+
 export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORM=wayland;xcb
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_IM_MODULE=fcitx
 
-export XDG_CURRENT_DESKTOP=Hyprland
-export XDG_SESSION_DESKTOP=Hyprland
-export XDG_SESSION_TYPE=wayland
+export SDL_IM_MODULE=fcitx
+export SDL_VIDEODRIVER=wayland,x11
+
+export GTK_ICON_THEME=Papirus-Dark
+export GTK_THEME="Adwaita:dark"
+
+export GSK_RENDERER=gl
+export GDK_DEBUG=gl-no-fractiona
+export GDK_SCALE=1
+export GDK_BACKEND=wayland,x11
 
 export INPUT_METHOD=fcitx
 export GLFW_IM_MODULE=ibus
-export SDL_IM_MODULE=fcitx
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export CLUTTER_BACKEND=wayland
-
-export GTK_ICON_THEME=Papirus-Dark
-export GDK_SCALE=1
-export GDK_BACKEND=wayland,x11

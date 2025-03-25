@@ -1,7 +1,13 @@
 #!/bin/sh
 
-# Lock screen and pause all media
-for player in $(playerctl --list-all); do
-        playerctl --player="$player" pause;
-done
-pidof hyprlock || killall hyprlock && hyprlock
+pauseAllPlayers() {
+  playerctl --all-players pause
+}
+
+pauseAllPlayers
+
+if [ $(hyprctl locked) = "false" ] && pidof hyprlock >/dev/null; then
+   killall hyprlock >/dev/null
+fi
+
+hyprlock

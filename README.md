@@ -38,13 +38,13 @@
 * Lockscreen: [Hyprlock](https://github.com/hyprwm/hyprlock)
 * Display Manager: [Ly](https://github.com/fairyglade/ly)
 * Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
-* Zsh configuration : [Zsh4Humans](https://github.com/romkatv/zsh4humans) 
+* Zsh plugin manager : [Zinit](https://github.com/zdharma-continuum/zinit) 
 * Notifications: [Swaync](https://github.com/ErikReider/SwayNotificationCenter)
 * Music Player: [Feishin](https://github.com/jeffvli/feishin)
 * Icon theme : [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 * Wallpaper : [Swww](https://github.com/LGFae/swww)
 * RSS Feed : [Newsboat](https://github.com/newsboat/newsboat) 
-* Launcher: [Rofi](https://github.com/lbonn/rofi#wayland-support)
+* Launcher: [Rofi](https://github.com/lbonn/rofi)
 * GPU Controller (AMD): [Lact](https://github.com/ilya-zlobintsev/LACT)
 
 ## Usefull Links

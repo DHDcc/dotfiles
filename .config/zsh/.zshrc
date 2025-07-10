@@ -32,16 +32,17 @@ zinit light zsh-users/zsh-history-substring-search
 
 # Add in snippets
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
+
+zinit cdreplay -q
 
 # Keybindings
 bindkey -e
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^H' backward-kill-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
@@ -54,7 +55,6 @@ HISTSIZE=5000
 HISTFILE=$ZDOTDIR/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-#HISTCONTROL=ignorespace
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -78,13 +78,11 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-
 # Alias
 alias nb='~/.scripts/bin/newsboat'
 alias rm='rm -v'
 alias nf='neofetch'
 alias df='duf'
-alias wp='wallpaper-picker'
 alias uptime='uptime -p'
 alias unp='unp -U'
 alias ..='cd ..'
@@ -93,8 +91,9 @@ alias code='vscodium'
 alias hc='$EDITOR $HOME/.config/hypr/hyprland.conf'
 alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
 alias v='vim'
+alias src='exec zsh'
 alias sv='sudo vim'
-alias fm='yazi'
+alias yz='yazi'
 alias free='free -h'
 alias pfind='plocate'
 alias p='sudo pacman'

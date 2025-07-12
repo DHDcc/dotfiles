@@ -40,7 +40,7 @@
 * Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
 * Zsh plugin manager : [Zinit](https://github.com/zdharma-continuum/zinit) 
 * Notifications: [Swaync](https://github.com/ErikReider/SwayNotificationCenter)
-* Music Player: [Feishin](https://github.com/jeffvli/feishin)
+* Music Player: [Feishin](https://github.com/jeffvli/feishin) / [Kew](https://github.com/ravachol/kew)
 * Icon theme : [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 * Wallpaper : [Swww](https://github.com/LGFae/swww)
 * RSS Feed : [Newsboat](https://github.com/newsboat/newsboat) 
